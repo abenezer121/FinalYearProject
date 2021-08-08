@@ -83,7 +83,7 @@ router.get('/getAllUsers/:page' , async ( req , res , next)=>{
 
 
 
-router.get('/getExpert:id' , async ( req , res , next) => {
+router.get('/getExpert/:id' , async ( req , res , next) => {
     try {
         const {id} = req.params;
         const data = await createUserController.getExpert(id);
@@ -94,7 +94,7 @@ router.get('/getExpert:id' , async ( req , res , next) => {
 })
 
 
-router.get('/getGeneralUser:id' , async ( req , res , next) => {
+router.get('/getGeneralUser/:id' , async ( req , res , next) => {
     try {
         const {id} = req.params;
         const data = await createUserController.getGeneralUser(id);
@@ -105,7 +105,7 @@ router.get('/getGeneralUser:id' , async ( req , res , next) => {
 })
 
 
-router.get('/getAllUser:id' , async ( req , res , next) => {
+router.get('/getAllUser/:id' , async ( req , res , next) => {
     try {
         const {id} = req.params;
         const data = await createUserController.getAllUser(id);
@@ -128,10 +128,14 @@ router.delete('/deleteUser' , async ( req , res , next) => {
     }
 })
 
-router.post( '/updateUser' , async ( req , res , next)=>{
+router.put( '/updateUser' , async ( req , res , next)=>{
     try {
 
         const {  id , UserName , PhoneNumber , FirstName , password , LastName , LastLogin} = req.body;
+        
+        console.log(req.body)
+
+        console.log(typeof(req.body))
 
         const update = await createUserController.updateUser(id , UserName , PhoneNumber , FirstName , password , LastName , LastLogin)
         
@@ -142,7 +146,7 @@ router.post( '/updateUser' , async ( req , res , next)=>{
     }
 })
 
-router.post('/updateExpert' , async ( req , res , next)=>{
+router.put('/updateExpert' , async ( req , res , next)=>{
     try {
          
         const { id ,  woreda , regionName } = req.body;
@@ -160,7 +164,7 @@ router.post('/updateExpert' , async ( req , res , next)=>{
     }
 })
 
-router.post('/updateGeneralUser' , async ( req , res, next)=>{
+router.put('/updateGeneralUser' , async ( req , res, next)=>{
     try {
 
         const { id , woreda , regionName } = req.body;

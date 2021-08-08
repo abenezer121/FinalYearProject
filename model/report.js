@@ -11,9 +11,7 @@ const reportSchema = new Schema({
     ReportLatitude : String ,
     ReportLongitude : String,
     ReportPhotoLocation : String ,
-    AreaWeatherDirection : String ,
-    VegitationAmount : String, 
-    DetectedLocustType : { type : Schema.Types.ObjectId , ref : 'Locust' }
+    DetectedLocust : { type : Schema.Types.ObjectId , ref : 'Locust' }
 })
 
 module.exports = mongoose.model('REPORT' , reportSchema)

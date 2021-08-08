@@ -6,36 +6,39 @@ const role = require('./../../model/role')
 const region = require('./../../model/region')
 const generalUsers = require('./../../model/generalUsers')
 
+
+async  function searchRole(RoleName){
+    return  await role.find({ RoleName : RoleName}  )
+ }
+
+
+ async function createRegion(regionName){
+     const newRegion = new region({ regionName : regionName , })
+     return  await newRegion.save( )
+ }
+
+ async function createExperts( saveRegion , woreda){
+     const newExpert = new experts({
+         region : saveRegion,
+         woreda : woreda,
+     })
+
+     return  await newExpert.save()
+ }
+
+ async function createGeneralUser(saveRegion , woreda){
+     const generalUsers = new generalUser({
+         region : saveRegion,
+         woreda : woreda,
+     })
+     
+     return await generalUsers.save()
+ }
+
 module.exports = {
 
 
-    async searchRole(RoleName){
-       return  await role.find({ RoleName : RoleName}  )
-    },
-
-
-    async createRegion(regionName){
-        const newRegion = new region({ regionName : regionName , })
-        return  await newRegion.save( )
-    },
-
-    async createExperts( saveRegion , woreda){
-        const newExpert = new experts({
-            region : saveRegion,
-            woreda : woreda,
-        })
-
-        return  await newExpert.save()
-    },
-
-    async createGeneralUser(saveRegion , woreda){
-        const generalUsers = new generalUser({
-            region : saveRegion,
-            woreda : woreda,
-        })
-        
-        return await generalUsers.save()
-    },
+    
 
   
     async registerExpert(UserName , PhoneNumber ,  FirstName , password , LastName , Gender , regionName , woreda ){
