@@ -105,13 +105,23 @@ router.get('/getGeneralUser/:id' , async ( req , res , next) => {
 })
 
 
-router.get('/getAllUser/:id' , async ( req , res , next) => {
+router.get('/getAllUser' , async ( req , res , next) => {
     try {
-        const {id} = req.params;
-        const data = await createUserController.getAllUser(id);
+        const data = await createUserController.getAllUsers();
         res.status(200).send(data)
     } catch (error) {
         res.status(400).send({error : error.message})
+    }
+})
+
+router.get('/me/:id' , async ( req , res , next) => {
+    try {
+        const {id} = req.params;
+        const data = await createUserController.getUser(id)
+        res.status(200).send(data)
+        
+    } catch (error) {
+        res.status(400).send({ error : error.message})
     }
 })
 

@@ -162,13 +162,10 @@ module.exports = {
                 }
             }) 
         },
-        async getAllUser(id){
-            return  await user.find({"_id" : id}).limit(20).skip(20 * page)
-        },
+        async getUser(id){ return  await user.find({"_id" : id}).limit(20).skip(20 * page) },
 
-        async deleteUser(id){
-            return await user.deleteOne({"_id" : id})
-        },
+        async deleteUser(id){ return await user.deleteOne({"_id" : id}) },
+        
         async updateUser(id , UserName , PhoneNumber , FirstName , password , LastName , LastLogin){
         
             var objForUpdate = {};

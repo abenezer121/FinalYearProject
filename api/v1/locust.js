@@ -1,55 +1,55 @@
 const router = require('express')
 const locustController = require('./../../controller/locust')
-
+const userController = require('./../../controller/user/userManager')
 const locustRouter = express.Router()
 
+locustRouter.post ('/addLocustPhase ' , async ( req , res , next)=> {
+    try {
+        const {} = req.body;
+        (LocustColor , LocustImageLocation , LocustPhase ,  locustTypeModelId )
+        res.status(200).send(resp)
+    } catch (error) {
+        res.status(400).send({ error : error.message})
+    }
+})
+locustRouter.get ('/getLocustPhase/:page ' , async ( req , res , next)=> {
+    try {
+        res.status(200).send(resp)
+    } catch (error) {
+        res.status(400).send({ error : error.message})
+    }
+})
+locustRouter.get ('/getOneLocustPhase/:id ' , async ( req , res , next)=> {
+    try {
+        res.status(200).send(resp)
+    } catch (error) {
+        res.status(400).send({ error : error.message})
+    }
+})
+locustRouter.delete ('/deleteLocustPhase ' , async ( req , res , next)=> {
+    try {
+        res.status(200).send(resp)
+    } catch (error) {
+        res.status(400).send({ error : error.message})
+    }
+})
+locustRouter.put ('/updateLocustPhase ' , async ( req , res , next)=> {
+    try {
+        res.status(200).send(resp)
+    } catch (error) {
+        res.status(400).send({ error : error.message})
+    }
+})
 
 
-locustRouter.post ('addLocustPhase ' , async ( req , res , next)=> {
+locustRouter.post ('/addlocustTypeModel ' , async ( req , res , next)=> {
     try {
         res.status(200).send(resp)
     } catch (error) {
         res.status(400).send({ error : error.message})
     }
 })
-locustRouter.get ('getLocustPhase/:page ' , async ( req , res , next)=> {
-    try {
-        res.status(200).send(resp)
-    } catch (error) {
-        res.status(400).send({ error : error.message})
-    }
-})
-locustRouter.get ('getOneLocustPhase/:id ' , async ( req , res , next)=> {
-    try {
-        res.status(200).send(resp)
-    } catch (error) {
-        res.status(400).send({ error : error.message})
-    }
-})
-locustRouter.delete ('deleteLocustPhase ' , async ( req , res , next)=> {
-    try {
-        res.status(200).send(resp)
-    } catch (error) {
-        res.status(400).send({ error : error.message})
-    }
-})
-locustRouter.put (' updateLocustPhase ' , async ( req , res , next)=> {
-    try {
-        res.status(200).send(resp)
-    } catch (error) {
-        res.status(400).send({ error : error.message})
-    }
-})
-
-
-locustRouter.post ('addlocustTypeModel ' , async ( req , res , next)=> {
-    try {
-        res.status(200).send(resp)
-    } catch (error) {
-        res.status(400).send({ error : error.message})
-    }
-})
-locustRouter.get ('getlocustTypeModel/:page ' , async ( req , res , next)=> {
+locustRouter.get ('/getlocustTypeModel/:page ' , async ( req , res , next)=> {
     try {
         res.status(200).send(resp)
     } catch (error) {
@@ -57,21 +57,21 @@ locustRouter.get ('getlocustTypeModel/:page ' , async ( req , res , next)=> {
     }
 })
    
-locustRouter.get ('getOnelocustTypeModel/:id ' , async ( req , res , next)=> {
+locustRouter.get ('/getOnelocustTypeModel/:id ' , async ( req , res , next)=> {
     try {
         res.status(200).send(resp)
     } catch (error) {
         res.status(400).send({ error : error.message})
     }
 })
-locustRouter.delete ('deletelocustTypeModel ' , async ( req , res , next)=> {
+locustRouter.delete ('/deletelocustTypeModel ' , async ( req , res , next)=> {
     try {
         res.status(200).send(resp)
     } catch (error) {
         res.status(400).send({ error : error.message})
     }
 })
-locustRouter.put ('updatelocustTypeModel ,  ' , async ( req , res , next)=> {
+locustRouter.put ('/updatelocustTypeModel ,  ' , async ( req , res , next)=> {
     try {
         res.status(200).send(resp)
     } catch (error) {
@@ -83,15 +83,9 @@ locustRouter.put ('updatelocustTypeModel ,  ' , async ( req , res , next)=> {
 
 
 
-locustRouter.post ('addLocust(LocustColor  ' , async ( req , res , next)=> {
-    try {
-        res.status(200).send(resp)
-    } catch (error) {
-        res.status(400).send({ error : error.message})
-    }
-})
+
     
-locustRouter.get ('getLocust/:page ' , async ( req , res , next)=> {
+locustRouter.get ('/getLocust/:page ' , async ( req , res , next)=> {
     try {
         res.status(200).send(resp)
     } catch (error) {
@@ -99,7 +93,7 @@ locustRouter.get ('getLocust/:page ' , async ( req , res , next)=> {
     }
 })
 
-locustRouter.get ('getOneLocust/:id  ' , async ( req , res , next)=> {
+locustRouter.get ('/getOneLocust/:id  ' , async ( req , res , next)=> {
     try {
         const { id , page} = req.params;
         const resp = await locustController.getOneLocust(id)
@@ -109,7 +103,7 @@ locustRouter.get ('getOneLocust/:id  ' , async ( req , res , next)=> {
     }
 })
     
-locustRouter.delete ('deleteLocust' , async ( req , res , next)=> {
+locustRouter.delete ('/deleteLocust' , async ( req , res , next)=> {
     try {
 
         res.status(200).send(resp)
@@ -118,7 +112,7 @@ locustRouter.delete ('deleteLocust' , async ( req , res , next)=> {
     }
 }) ,
     
-locustRouter.put ('updateLocust' , async ( req , res , next)=> {
+locustRouter.put ('/updateLocust' , async ( req , res , next)=> {
     try {
       
         res.status(200).send(resp)
